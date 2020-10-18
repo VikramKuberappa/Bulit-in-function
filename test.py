@@ -36,4 +36,4 @@ assert(bif.myround(123.567895, ndigits=3))
 assert(bif.mysorted('vikram', reverse=False))
 
 
-print('ALL TEST SUCCESSFUL!')
+print('ALL TEST SUCCESSFULL!')

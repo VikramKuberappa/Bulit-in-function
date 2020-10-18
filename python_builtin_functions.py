@@ -149,7 +149,7 @@ def myisinstance(object, classinfo):
     # if t2>=0:
     #     return True
     # return False
-    if str(classinfo) in type (object):
+    if str(classinfo) in str(type(object)):
         return True
     return False
 
@@ -157,12 +157,16 @@ def myisinstance(object, classinfo):
 def myround(number, ndigits=None):
     """ Implementation of built-in `round` function """
     dot='.'
-    lst=list(str(number))
-    f=str(number).find(dot)
-    t=f+ndigits+1
-    if int(lst[t])>5:
-        lst[t-1]=str(int(lst[t-1])+1)
-    return  ''.join(lst[0:t])
+    number=str(number)
+    lst=list(number)
+    f=number.find(dot)
+    if int(len(number[(f+1):]))<=ndigits:
+        return number
+    else:
+        t=f+ndigits+1
+        if int(lst[t])>5:
+            lst[t-1]=str(int(lst[t-1])+1)
+        return  ''.join(lst[0:t])
 
 
 def mysorted(iterable, reverse=False):

@@ -160,12 +160,15 @@ def myround(number, ndigits=None):
     number=str(number)
     lst=list(number)
     f=number.find(dot)
-    if int(len(number[(f+1):]))<=ndigits:
+    if f<0:
         return number
     else:
-        t=f+ndigits+1
-        if int(lst[t])>5:
-            lst[t-1]=str(int(lst[t-1])+1)
+        if int(len(number[(f+1):]))<=ndigits:
+            return number
+        else:
+            t=f+ndigits+1
+            if int(lst[t])>5:
+                lst[t-1]=str(int(lst[t-1])+1)
         return  ''.join(lst[0:t])
 
 
